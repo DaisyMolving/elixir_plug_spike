@@ -62,4 +62,8 @@ defmodule WebRomanNumeralsTest do
     assert WebRomanNumerals.convert(50) == "L"
   end
 
+  test "3999 returns MMMCMXCIX" do
+    assert WebRomanNumerals.convert(3999) == "MMMCMXCIX"
+  end
+
 end
