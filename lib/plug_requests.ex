@@ -15,13 +15,16 @@ end
 
 defmodule PlugRequest do
   use Router
+  require EEx
+
+  EEx.function_from_file :defp, :template_roman_page, "templates/roman_numerals_page.eex"
 
   def run_locally do
     {:ok, _} = Plug.Adapters.Cowboy.http PlugRequest, []
   end
 
   def route("GET", [], conn) do
-    page_contents = EEx.eval_file("templates/roman_numerals_page.eex")
+    page_contents = template_roman_page
     conn
     |> Plug.Conn.put_resp_content_type("text/html")
     |> Plug.Conn.send_resp(200, page_contents)
