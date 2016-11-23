@@ -2,5 +2,12 @@
 <html>
   <body>
     <h1>Roman Numerals Converter</h1>
+    <h2>Input an Arabic Number from 1 - 3999 to see its Roman Numeral equivalent!</h2>
+    <form action="/arabic_number" method="post">
+      Arabic Number Here:</br>
+      <input type="text" name="arabic_number" /><br>
+      <input type="submit" value="Convert Number"/>
+    </form>
+    <h2>Roman equivalent is: <%= roman_numeral %></h2>
   </body>
 </html>
